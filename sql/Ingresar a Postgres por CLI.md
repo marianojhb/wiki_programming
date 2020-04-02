@@ -48,10 +48,13 @@ También podríamos especificar la base de datos:
 $ psql -U postgres -h localhost -p 5433 -d libros
 Password for user postgres: 
 ``` 
+Dónde:   
 `-d` : la **d**atabase (`libros`).  
 <br>
 
-De estas manera nos aparece un prompt para que interativamente ingresemos la contraseña. Ahora vamos a ver otras maneras, a través de *variables de entorno*, de ingresar a postgres **sin tener que ingresar la contraseña cada vez**.
+De estas manera nos aparece un prompt para que interactivamente ingresemos la contraseña.
+  
+Para subsanar esta molestia y a través de *variables de entorno*, ingresaremos a postgres **sin tener que ingresar la contraseña cada vez**.
 
 
 
@@ -63,7 +66,7 @@ Usando variables de entorno evitamos tener que escribir los datos cada vez que i
 
 Las principales variables de entorno que utiliza postgres son:  
   
-> `PUSER`: usuario  
+> `PGUSER`: usuario  
 > `PGPASSWORD`: constraseña  
 > `PGHOST`: host  
 > `PGPORT`: puerto  
