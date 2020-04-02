@@ -7,19 +7,28 @@ El comando para entrar a Postgres es
 $ psql
 ```
 
-Si utilizamos el comando así, sin modificadores, y sin configurar <em>variables de entorno</em>, normalmente recibiremos un error.
+Si utilizamos el comando así a secas, sin modificadores, y sin configurar <em>variables de entorno</em>, normalmente recibiremos un error.
 
 ```
 $ psql
 psql: error: could not connect to server: FATAL:  database "xxxx" does not exist
 ```
-Donde "xxxx" es nuestro usuario del sistema.
-Para poder ingresar a psql tenemos varias opciones:  
+Donde "xxxx" es nuestro usuario del sistema. 
+
 <br>
+Para poder ingresar a psql tenemos varias opciones:   
+
+1. [A través de la línea de comandos directamente](#a-través-de-la-línea-de-comandos-directamente)
+2. [A través de variables de entorno](#a-través-de-variables-de-entorno)
+3. [A través del archivo `.pgpass`](#A-través-del-archivo-`.pgpass`)
+
+<br>
+
 
 ---
 
 ### 1. A través de la línea de comandos directamente  
+
   
 
 Es necesario entonces usar modificadores:   
