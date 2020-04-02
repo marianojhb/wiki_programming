@@ -20,8 +20,7 @@ Para poder ingresar a psql tenemos varias opciones:
 
 1. [A través de la línea de comandos directamente](#1-a-través-de-la-línea-de-comandos-directamente)
 2. [A través de variables de entorno](#2-a-través-de-variables-de-entorno)
-3. [A través del archivo `.pgpass`](#3-a-través-del-archivo-.pgpass)
-
+3. [A través del archivo `.pgpass`](#3-a-través-del-archivo-pgpass)
 
 <br>
 
