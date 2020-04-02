@@ -41,7 +41,7 @@ Donde:
 `-h` : **h**ost (`localhost` o `127.0.0.1`)  
 `-p` : **p**uerto (`5433`)  
 
-Observamos que a diferencia de mysql, no podemos incluir la contraseña y entonces nos la pide.
+Observamos que a diferencia de mysql, no podemos incluir la contraseña y entonces nos la pide.  
 
 También podríamos especificar la base de datos:
 ```
@@ -51,11 +51,16 @@ Password for user postgres:
 `-d` : la **d**atabase (`libros`).  
 <br>
 
+De estas manera nos aparece un prompt para que interativamente ingresemos la contraseña. Ahora vamos a ver otras maneras, a través de *variables de entorno*, de ingresar a postgres **sin tener que ingresar la contraseña cada vez**.
+
+
+
 ---
 
 ### 2. A través de variables de entorno
 
 Usando variables de entorno evitamos tener que escribir los datos cada vez que ingresamos a postgres.  
+
 Las principales variables de entorno que utiliza postgres son:  
   
 > `PUSER`: usuario  
@@ -64,7 +69,7 @@ Las principales variables de entorno que utiliza postgres son:
 > `PGPORT`: puerto  
 > `PGDATABASE`: nombre de la base de datos  
 
-Naturalmente podemos consultar las variables de entorno con `printenv` o `echo`. Ejemplos:
+Naturalmente podemos consultar las variables de entorno actuales con `printenv` o `echo`. Nos va servir más adelante para verificar si nuestra terminal las ha tomado. Ejemplos:
 
 ```
 $ printenv PGUSER
@@ -79,10 +84,10 @@ Seteamos las variables de entorno con el comando `export`.
 ```bash
 $ export PGUSERNAME="postgres"
 ```
-Es muy importante no dejar espacios alrededor del signo `=` porque si no el lenguaje script de bash no lo toma.
+Es muy importante no dejar espacios alrededor del signo `=` porque si no el lenguaje script de bash no lo acepta.
 
 
-Las variables de entorno se pueden guardar en el directorio `home`, dentro del archivo `.bash_profile` y quedará seteado toda vez que se reinicie la terminal.  
+Las variables de entorno se pueden guardar en el archivo `.bash_profile` del directorio home `~/`, y quedará seteado toda vez que se reinicie la terminal.  
 
 
 ```bash
@@ -94,13 +99,17 @@ export PGPORT='5433'
 export PGDATABASE='libros'
 ...
 ```
-Pero si tenemos más de una base de datos, lo conveniente es guardar un archivo `.env` dentro del directorio del proyecto, y llamarlo: 
+Pero si tenemos más de una base de datos, lo conveniente es crear un archivo `.env` dentro del directorio del proyecto, e invocarlo cuando trabajemos en el mismo: 
 ```bash
 $ source .env
 ```
- El archivo `.env` debe tener seteado el permiso 600 (user RW, group y other sin permiso). Y, por supuesto, agregarlo en `.gitignore` si utilizamos el sistema de versionado Git, para no revelar estos datos.
+ El archivo `.env` debe tener seteado el permiso 600 (user RW, group y other sin permiso). 
+ ```
+chmod 600 .env
+ ```
+ Es importante agregar `.env` en `.gitignore` si utilizamos el sistema de versionado Git, para no revelar estos datos.
 
-***Si seteamos las variables de entorno, con solo escribir `psql` en la línea de comandos ya podemos ingresar.***
+***Siguiendo estos pasos y seteamos las variables de entorno, con solo escribir `psql` en la línea de comandos ya podemos ingresar.***
 
 ```
 $ psql
@@ -116,7 +125,7 @@ También podemos setear una la variable de entorno completa para usar en nuestro
 DATABASE_URL='postgres://postgres:admin@elocalhost:5433/'
 ...
 ```
-Esta opción no es para ingresar a psql por línea de comando, pero convenía recordar como era la URL.  
+Esta opción no es para ingresar a psql por línea de comando, pero convenía recordar como era la URL completa.  
 
 Por ejemplo en Python, la llamamos de esta manera:
 ```python
