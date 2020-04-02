@@ -167,6 +167,8 @@ Funciona de esta manera:
     ...
     ```
 
-Por qué no tiene mucha utilidad?   
+Por qué no tiene mucha utilidad?
+
 *Porque cada vez que necesitamos usar la base de datos, tenemos que utilizar toda la secuencia salvo la contraseña.*   
+
 Esta solución funciona comparando `usuario`, `host`, y `puerto` con la cadena creada en `.pgpass`, y luego busca la contraseña para no tener que escribirla.
